@@ -13,9 +13,9 @@ for i in {0,255}
 do
 	for j in {1..255}
 	do
-		if ping -c1 -W2 $PingNet.$i.$j&>/dev/null
+		if ping -c1 -W2 $PingNet.$i.$j &>/dev/null
 		then
-			echo "$PintNet.$i.$j is onlinn."
+			echo "$PintNet.$i.$j is online."
 		else
 			echo "$PingNet.$i.$j is offline."
 		fi
