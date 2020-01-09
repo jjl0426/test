@@ -6,7 +6,7 @@
 echo "please input the threadID of the process:"
 read -p "The threadID is:" threadID
 
-while [ `ps -e | grep "$threadID" | wc -l` -eq 0 ]
+while [ `ps -e | grep "$threadID" | grep -v "grep" | wc -l` -eq 0 ]
 do
 	echo "The process is running..." &&  sleep 10
 done
