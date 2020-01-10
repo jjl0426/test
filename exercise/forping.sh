@@ -11,9 +11,9 @@ do
 	do
 		if ping -c1 -W2 $PingNet.$i.$j&>/dev/null
 		then
-			echo "$PingNet.$i.$j is online"
+			exit 0
 		else
-			echo "$PingNet.$i.$j is offline"
+			exit 1
 		fi
 	done
 done
