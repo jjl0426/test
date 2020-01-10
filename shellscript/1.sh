@@ -10,7 +10,10 @@ case $1 in
 			exec ./2.sh ;;
 		 --source)
 		        echo -e "==> using source...\n"
-		        . ./2.sh ;;										 *)
-			echo -e "==> using fork by default...\n"					                ./2.sh ;;
-esac												echo "after exec/source/fork: PID for 1.sh = $$"
-												echo -e "IN 1.sh: variable A=$A\n"
+		        . ./2.sh ;;				
+		*)
+			echo -e "==> using fork by default...\n"
+			./2.sh ;;
+esac
+echo "after exec/source/fork: PID for 1.sh = $$"
+echo -e "IN 1.sh: variable A=$A\n"
