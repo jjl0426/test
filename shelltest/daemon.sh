@@ -1,7 +1,7 @@
 #!bin/bash
 #Author:
 #Date & Time: 2020-01-08 21:44:02
-#Description:监控worker内存增长情况，每5s监测一次，当内存超过20M之后，关掉worker.sh并重启它
+#Description:监控worker内存增长情况，每5s监测一次，当内存超过200M之后，关掉worker.sh并重启它
 
 read -p "please enter the name of process:" processname
 echo "ProcessName: "$processname
@@ -18,13 +18,14 @@ do
 	RES=`top -d 1 -n 1 -p $PID | awk 'NR==8{print $6}'`
 	echo virt: $VIRT
 	echo res: $RES
-	if [ $(($((VIRT+RES))/1024)) -ge 20 ]
+	if [ $(($((VIRT+RES))/1024)) -ge 200 ]
 	then
-		echo "the memory is out of 20M."
+		echo "the memory is out of 200M."
 		pgrep $processname | xargs kill -9
 		chmod +x $processname 
-		nohup ./$processname >456.txt 2>&1 &
-		exit 0
+		sh $processname
+	else
+		echo "正在监控中...，还未达到200M"
 	fi
 	sleep 5
 
