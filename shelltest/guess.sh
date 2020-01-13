@@ -49,9 +49,13 @@ do
 		echo "OK,you are right." >> 123.txt
 		echo "OK,you are right."
 		exit 0
+	elif [ $guessnum -gt $yournnum ]
+		echo "Sorry，your number is small,please try again." >> 123.txt
+		echo "Sorry,your number is small,please try again."
+
 	else
-		echo "Sorry,please try again." >> 123.txt
-		echo "Sorry,please try again."
+		echo "Sorry,your number is big,please try again." >> 123.txt
+		echo "Sorry,your number is big,please try again."
 	fi
 done
 
