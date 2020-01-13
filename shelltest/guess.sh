@@ -50,6 +50,7 @@ do
 		echo "OK,you are right."
 		exit 0
 	elif [ $guessnum -gt $yournum ]
+	then
 		echo "Sorry，your number is big,please try again." >> 123.txt
 		echo "Sorry,your number is big,please try again."
 	else
