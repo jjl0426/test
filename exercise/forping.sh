@@ -9,11 +9,12 @@ for i in {0..255}
 do
 	for j in {1..255}
 	do
-		if ping -c1 -W2 $PingNet.$i.$j&>/dev/null
+		if ! ping -c1 -W2 $PingNet.$i.$j&>/dev/null
 		then
-			exit 0
-		else
 			exit 1
+		else
+			continue
 		fi
 	done
+	exit 0
 done
