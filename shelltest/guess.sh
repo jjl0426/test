@@ -16,20 +16,24 @@ content=`fold -w1 123.txt`
 echo $content > 123.txt
 length=`cat 123.txt`
 echo "文件长度为：${#length}"
+
+
 myarray=()
 index=0
 for((i=1;i<=${#length};i++))
 do
-	num=`cat 123.txt | cut -d" " -f$i`
+	num=`cat 123.txt | cut -d" " -f $i`
 	if [ $(($num)) -ge 1 -a $(($num)) -le 6 ]
 	then
 		myarray[$index]=$(($num))
+		let index++
 	else
 		continue
 	fi
-	let index++
 done
 echo "myarray length:"${#myarray[*]}
+
+
 seconds=`date +%S`
 yournum=${myarray[$(($seconds))/2]}
 echo "您的数字是："$yournum
